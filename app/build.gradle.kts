@@ -40,6 +40,15 @@ android {
 }
 
 dependencies {
+    //Aqui va la libreria de OSMDroid
+    //https://github.com/osmdroid/osmdroid
+    implementation("org.osmdroid:osmdroid-android:6.1.14")
+
+    //Libreria para usar el GPS del celular
+    implementation(libs.play.services.location)
+
+    //Para jalar el observeAsState
+    implementation("androidx.compose.runtime:runtime-livedata:1.8.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

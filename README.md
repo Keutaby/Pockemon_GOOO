@@ -24,3 +24,6 @@ Poner EN PROCESO para las paginas que todavia se estan trabajando.
 19. Pokedex capturados del usuario --------- EN PROCESO
 20. Configuracion de foto de perfil -------- EN PROCESO
 21. Capturar pokemones (camara) ------------ EN PROCESO
+
+Orden de abrir applicación:
+1, 11, 12, 2, 9, 3, 10, 20, 14
