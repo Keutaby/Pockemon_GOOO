@@ -38,10 +38,10 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         val marcador_ubicacion_actual = Marker(mapa_view)
 
         if(ubicacion_actual != null){
-            marcador_ubicacion_actual.position = GeoPoint(ubicacion_actual!!) //tipo optional
+            //marcador_ubicacion_actual.position = GeoPoint(ubicacion_actual!!) //tipo optional
             marcador_ubicacion_actual.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            val poke_gym_marker: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym)
-            marcador_ubicacion_actual.icon = poke_gym_marker
+            val poke_avatar: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_mapa)
+            marcador_ubicacion_actual.icon = poke_avatar
 
             mapa_view.controller.animateTo(marcador_ubicacion_actual.position) //to be shown a certain point
         }
@@ -55,8 +55,8 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         marcador_2.icon = poke_gym_marker
 
         val marcador_3 = Marker(mapa_view)
-        val parque_Eastside = GeoPoint(31.816170773485606, -106.53212165580622) //get from google maps, Westside Natatorium pool
-        marcador_3.position = parque_Eastside
+        val parque_westside = GeoPoint(31.816170773485606, -106.53212165580622) //get from google maps, Westside Natatorium pool
+        marcador_3.position = parque_westside
         marcador_3.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         val pokestop_marker: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_pokestop)
         marcador_3.icon = pokestop_marker
