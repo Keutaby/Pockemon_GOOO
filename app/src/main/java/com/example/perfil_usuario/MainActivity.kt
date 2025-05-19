@@ -24,6 +24,7 @@ import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import org.osmdroid.config.Configuration
 import android.Manifest
 import androidx.compose.runtime.getValue
+import com.example.perfil_usuario.PantallasNavegacion.MenuHome
 import com.example.perfil_usuario.ui.theme.Perfil_UsuarioTheme
 
 class MainActivity : ComponentActivity() {
@@ -61,7 +62,8 @@ class MainActivity : ComponentActivity() {
             Perfil_UsuarioTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background) {
-                    MapaPokemones(controlador_gps)
+                    //MapaPokemones(controlador_gps)
+                    MenuHome(modifier = Modifier.fillMaxSize(), controlador_gps = controlador_gps)
                 }
             }
         }
@@ -82,10 +84,16 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Perfil_UsuarioTheme {
-        MapaPokemones(controlador_gps = GPSControlador())
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    Perfil_UsuarioTheme {
+//        Surface(
+//            modifier = Modifier.fillMaxSize(),
+//            color = MaterialTheme.colorScheme.background
+//        ) {
+//            //MapaPokemones(controlador_gps)
+//            MenuHome(modifier = Modifier.fillMaxSize(), gp)
+//        }
+//    }
+//}

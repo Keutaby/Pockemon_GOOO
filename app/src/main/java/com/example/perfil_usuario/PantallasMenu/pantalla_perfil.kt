@@ -101,30 +101,25 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
         Spacer(modifier = Modifier.height(16.dp))
 
         //Player stats
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            elevation = 8.dp
+        Column(
+            modifier = Modifier.padding(16.dp),
+            horizontalAlignment = Alignment.Start
         ) {
-            Column(
-                modifier = Modifier.padding(16.dp),
-                horizontalAlignment = Alignment.Start
+            Text(
+                text = "Player Stats",
+                fontWeight = FontWeight.SemiBold,
+                color = Color.Black
+            )
+            Modifier.padding(vertical = 8.dp)
+            HorizontalDivider(modifier, color = Color.Black)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(
-                    text = "Player Stats",
-                    fontWeight = FontWeight.SemiBold,
-                    color = Color.Black
-                )
-                Modifier.padding(vertical = 8.dp)
-                HorizontalDivider(modifier, color = Color.Black)
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(text = "Pokédex Count:", color = Color.Gray)
-                    Text(text = pokedexCount.toString(), fontWeight = FontWeight.Bold, color = Color.Black)
-                }
-                Spacer(modifier = Modifier.height(8.dp))
+                Text(text = "Pokédex Count:", color = Color.Gray)
+                Text(text = pokedexCount.toString(), fontWeight = FontWeight.Bold, color = Color.Black)
             }
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 }

@@ -10,7 +10,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class PantallaMenuPrincipal(val ruta: String){
     object Home: PantallaMenuPrincipal("pantalla_inicial")
-    object StarWars: PantallaMenuPrincipal("pantalla_star_wars")
+    object Pokedex: PantallaMenuPrincipal("pantalla_pokedex")
+    object Batalla: PantallaMenuPrincipal("pantalla_batallas")
     object Perfil: PantallaMenuPrincipal("pantalla_perfil")
 }
 
@@ -30,19 +31,20 @@ data class BotonesInferioresNavegacion(
             BotonesInferioresNavegacion(
                 etiqueta = "Pokedex",
                 icono = Icons.Filled.Info,
-                ruta = PantallaMenuPrincipal.StarWars.ruta
+                ruta = PantallaMenuPrincipal.Pokedex.ruta
             ),
 
             BotonesInferioresNavegacion(
                 etiqueta = "Batallas",
                 icono = Icons.Filled.LocationOn,
-                ruta = PantallaMenuPrincipal.StarWars.ruta
+                ruta = PantallaMenuPrincipal.Batalla.ruta
             ),
 
             BotonesInferioresNavegacion(
                 etiqueta = "Perfil",
                 icono = Icons.Filled.AccountCircle,
-                ruta = PantallaMenuPrincipal.Perfil.ruta)
+                ruta = PantallaMenuPrincipal.Perfil.ruta
+            )
         )
     }
 }
