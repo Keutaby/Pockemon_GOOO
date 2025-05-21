@@ -33,12 +33,6 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                    level: Int,
                    team: String,
                    pokedexCount: Int){
-    data class PlayerProfile(
-        val name: String,
-        val level: Int,
-        val team: String,
-        val pokedexCount: Int
-    )
 
     Column(
         modifier = Modifier

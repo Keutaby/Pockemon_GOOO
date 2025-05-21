@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -15,14 +14,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
-import com.example.perfil_usuario.API_Batalla.ApiClientInstance
+import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
+import com.example.perfil_usuario.API_Batalla.POKE.PokemonEntry
 import com.example.perfil_usuario.API_Batalla.PokemonApi
-import com.example.perfil_usuario.API_Batalla.PokemonEntry
 import java.io.IOException
 
 class PokedexActivity : ComponentActivity() {
@@ -30,7 +28,7 @@ class PokedexActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // Create an instance of ApiClient
-        val apiClient = ApiClientInstance.instance
+        val apiClient = InstanceRetrofitPoke
 
         setContent {
             // Use your theme if available, or a basic Surface

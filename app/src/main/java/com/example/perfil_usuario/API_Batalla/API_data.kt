@@ -1,56 +1,18 @@
 package com.example.perfil_usuario.API_Batalla
 
-//API Response
-data class PokemonListResponse(
-    val results: List<PokemonEntry>
-)
+import com.example.perfil_usuario.API_Batalla.POKE.MoveDetailResponse
+import com.example.perfil_usuario.API_Batalla.POKE.PaginaContenedora
+import com.example.perfil_usuario.API_Batalla.POKE.PokemonDetailResponse
+import com.example.perfil_usuario.API_Batalla.POKE.PokemonListResponse
 
-data class PokemonEntry(
-    val name: String,
-    val url: String
-)
+class RepositorioPOKE{
+    private val API_pockemons = InstanceRetrofitPoke.consumir_servicio
 
-data class PokemonDetailResponse(
-    val id: Int,
-    val name: String,
-    val sprites: PokemonSprites,
-    val types: List<PokemonTypeEntry>,
-    val stats: List<PokemonStatEntry>,
-    val moves: List<PokemonMoveEntry>,
-    var hp: Int
-)
+    suspend fun obtener_pokemones(pagina: Int): PokemonDetailResponse{
+        return API_pockemons.getPokemonDetails(pagina)
+    }
 
-data class PokemonSprites(
-    val frontDefault: String?
-)
-
-data class PokemonTypeEntry(
-    val type: PokemonType
-)
-
-data class PokemonType(
-    val name: String
-)
-
-data class PokemonStatEntry(
-    val baseStat: Int,
-    val stat: PokemonStat
-)
-
-data class PokemonStat(
-    val name: String,
-    val url: String
-)
-
-data class PokemonMoveEntry(
-    val move: PokemonMove
-)
-
-data class PokemonMove(
-    val name: String,
-    val url: String
-)
-
-data class MoveDetailResponse(
-    val power: Int?
-)
+    suspend fun obtener_poke(id: Int): MoveDetailResponse{
+        return API_pockemons.getMoveDetails(id)
+    }
+}

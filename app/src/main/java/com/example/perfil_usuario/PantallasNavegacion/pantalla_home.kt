@@ -15,11 +15,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+
 import androidx.navigation.compose.rememberNavController
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
+import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 
 
 @Composable
@@ -56,14 +60,24 @@ fun MenuHome(modifier: Modifier, controlador_gps: GPSControlador){
             }
         }
     }) { innerPadding ->
-        PantallaNavegadora(modifier = Modifier.padding(innerPadding), controlador_gps = controlador_gps)
-//        NavHost(navController = control_navegacion,
-//            startDestination = PantallaMenuPrincipal.Home.ruta,
-//            modifier = Modifier.padding(innerPadding)){
-//
-//            composable(PantallaMenuPrincipal.Home.ruta){
-//                PantallaMenuPrincipal(modifier = Modifier.fillMaxSize(), MapaPokemones)
-//            }
+        NavHost(navController = control_nav,
+            startDestination = PantallaMenuPrincipal.Home.ruta,
+            modifier = Modifier.padding(innerPadding)) {
 
+            composable(PantallaMenuPrincipal.Home.ruta) {
+                PantallaNavegadora(modifier = Modifier.fillMaxSize(), controlador_gps = controlador_gps)
+            }
+
+            composable(PantallaMenuPrincipal.Perfil.ruta){
+                PantallaPerfil(name = "",
+                    level = 5,
+                    team = "",
+                    pokedexCount = 10)
+            }
+
+            composable(PantallaMenuPrincipal.Pokedex.ruta){
+                PokedexScreen()
+            }
+        }
     }
 }

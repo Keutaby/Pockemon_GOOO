@@ -28,12 +28,16 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
 
         composable(PantallaMenuPrincipal.Perfil.ruta) {
             Text("Mostrando Perfil")
-            //PantallaPerfil(player_profile = PlayerProfile)
+            PantallaPerfil(
+            name = "",
+            level = 5,
+            team = "",
+            pokedexCount = 10)
         }
 
         composable(PantallaMenuPrincipal.Pokedex.ruta){
             Text("Mostrando Pokedex")
-            //PokedexScreen(apiClient: PokemonApi)
+            //PokedexScreen(apiClient = PokemonApi)
         }
 
         composable(PantallaMenuPrincipal.Batalla.ruta){
