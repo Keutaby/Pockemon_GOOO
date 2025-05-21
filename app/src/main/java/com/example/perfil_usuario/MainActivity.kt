@@ -93,7 +93,7 @@ class MainActivity : ComponentActivity() {
 //            color = MaterialTheme.colorScheme.background
 //        ) {
 //            //MapaPokemones(controlador_gps)
-//            MenuHome(modifier = Modifier.fillMaxSize(), gp)
+//            MenuHome(modifier = Modifier.fillMaxSize(), gps_controlador)
 //        }
 //    }
 //}

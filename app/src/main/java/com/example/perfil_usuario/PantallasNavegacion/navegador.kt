@@ -1,5 +1,6 @@
 package com.example.perfil_usuario.PantallasNavegacion
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,6 +11,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
+import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 
 @Composable
 fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
@@ -24,7 +27,17 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
         }
 
         composable(PantallaMenuPrincipal.Perfil.ruta) {
-            Text(".......")
+            Text("Mostrando Perfil")
+            //PantallaPerfil(player_profile = PlayerProfile)
+        }
+
+        composable(PantallaMenuPrincipal.Pokedex.ruta){
+            Text("Mostrando Pokedex")
+            //PokedexScreen(apiClient: PokemonApi)
+        }
+
+        composable(PantallaMenuPrincipal.Batalla.ruta){
+            Text("Mostrando Batalla")
         }
     }
 }
