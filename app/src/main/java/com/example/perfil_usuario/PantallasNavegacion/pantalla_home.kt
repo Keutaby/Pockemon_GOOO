@@ -16,10 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-
 import androidx.navigation.compose.rememberNavController
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
-import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
@@ -76,7 +74,9 @@ fun MenuHome(modifier: Modifier, controlador_gps: GPSControlador){
             }
 
             composable(PantallaMenuPrincipal.Pokedex.ruta){
-                PokedexScreen()
+                PokedexScreen(
+                    apiClient = TODO()
+                )
             }
         }
     }
