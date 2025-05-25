@@ -7,14 +7,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
-import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
-import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -50,10 +47,17 @@ fun MapaPokemones(controlador_gps: GPSControlador){
             mapa_view.controller.animateTo(marcador_ubicacion_actual.position) //to be shown a certain point
         }
 
+        /*val marcador = Marker(mapa_view)
+        val parque_cowan = GeoPoint(31.711242676792303, -106.36436336981875)
+        marcador.position = parque_cowan
+        marcador.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        val poke_avatar: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_mapa)
+        marcador_ubicacion_actual.icon = poke_avatar*/
+
         val marcador_2 = Marker(mapa_view)
         val parque_veterans = GeoPoint(31.92019790477828, -106.42046109544629) //get from google maps, veterans pool
         marcador_2.position = parque_veterans
-        //marcador_2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        marcador_2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         //marcador_2.icon
         val poke_gym_marker: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym)
         marcador_2.icon = poke_gym_marker

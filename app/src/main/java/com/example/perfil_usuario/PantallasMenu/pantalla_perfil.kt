@@ -45,7 +45,7 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
             painter = painterResource(id = R.drawable.avatar_mapa),
             contentDescription = "Trainer Avatar",
             modifier = Modifier
-                .size(120.dp)
+                .size(400.dp)
                 .clip(CircleShape),
             contentScale = ContentScale.Crop,
 
@@ -64,12 +64,14 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier.padding(end = 8.dp),
+                style = TextStyle(fontSize = 18.sp)
             )
             Text(
                 text = "Lv. $level",
                 color = Color.Gray,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = TextStyle(fontSize = 18.sp)
             )
         }
 
@@ -80,7 +82,8 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
             text = "Team: $team",
             fontWeight = FontWeight.Bold,
             color = Color.DarkGray,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            style = TextStyle(fontSize = 18.sp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -92,7 +95,8 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
         ) {
             Text(
                 text = "Player Stats",
-                color = Color.Black
+                color = Color.Black,
+                style = TextStyle(fontSize = 18.sp)
             )
             Modifier.padding(vertical = 8.dp)
             HorizontalDivider(modifier, color = Color.Black)
@@ -100,8 +104,8 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = "Pokédex Count:", color = Color.Gray)
-                Text(text = pokedexCount.toString(), color = Color.Black)
+                Text(text = "Pokédex Count:", color = Color.Gray, style = TextStyle(fontSize = 18.sp))
+                Text(text = pokedexCount.toString(), color = Color.Black, style = TextStyle(fontSize = 18.sp))
             }
             Spacer(modifier = Modifier.height(8.dp))
         }

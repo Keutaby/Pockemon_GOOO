@@ -51,20 +51,15 @@ fun PokedexScreen(apiClient: PokemonApi) {
 
     //Pokemon data
     LaunchedEffect(Unit) {
-        coroutineScope.launch { // Launch a coroutine for the network request
+        coroutineScope.launch {
             try {
-                // Call the API client to get the list of Pokemon
-                // Note: getPokemonList now requires offset and limit.
-                // For a simple list, we can start with offset 0 and a reasonable limit.
-                val response = apiClient.getPokemonList(offset = 0, limit = 100) // Example: fetch first 100
-                pokemonList = response.results // Update the state with the fetched results
+                val response = apiClient.getPokemonList(offset = 0, limit = 100)
+                pokemonList = response.results
                 loading = false // Set loading to false after successful fetch
             } catch (e: IOException) {
-                // Catch network-related errors
                 errorMessage = "Failed to load Pokemon: ${e.message}"
                 loading = false // Set loading to false even on error
             } catch (e: Exception) {
-                // Catch any other unexpected errors
                 errorMessage = "An unexpected error occurred: ${e.message}"
                 loading = false
             }

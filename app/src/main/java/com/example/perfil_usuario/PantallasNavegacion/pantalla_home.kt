@@ -20,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
 import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 
@@ -73,9 +74,10 @@ fun MenuHome(modifier: Modifier, controlador_gps: GPSControlador){
                     pokedexCount = 10)
             }
 
+            val apiClientInstance = InstanceRetrofitPoke.consumir_servicio
             composable(PantallaMenuPrincipal.Pokedex.ruta){
                 PokedexScreen(
-                    apiClient = TODO()
+                    apiClient = apiClientInstance
                 )
             }
         }

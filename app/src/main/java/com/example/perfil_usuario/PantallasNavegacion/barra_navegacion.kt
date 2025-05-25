@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class PantallaMenuPrincipal(val ruta: String){
@@ -36,7 +37,7 @@ data class BotonesInferioresNavegacion(
 
             BotonesInferioresNavegacion(
                 etiqueta = "Batallas",
-                icono = Icons.Filled.LocationOn,
+                icono = Icons.Filled.Warning,
                 ruta = PantallaMenuPrincipal.Batalla.ruta
             ),
 
