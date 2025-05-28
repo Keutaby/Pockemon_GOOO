@@ -18,11 +18,11 @@ Poner EN PROCESO para las paginas que todavia se estan trabajando.
 13. Configuracion -------------------------- EN PROCESO
 14. Mapa de todos los pokemones ------------ EN PROCESO
 15. Pelea de los pokemones en la mapa ------ EN PROCESO
-16. Muerte --------------------------------- EN PROCESO
+16. Muerte --------------------------------- TERMINADO
 17. Ya capturado --------------------------- EN PROCESO
 18. Coleccion/pokedex ---------------------- EN PROCESO
 19. Pokedex capturados del usuario --------- EN PROCESO
-20. Configuracion de foto de perfil -------- EN PROCESO
+20. Configuracion de foto de perfil -------- TERMINADO
 21. Capturar pokemones (camara) ------------ EN PROCESO
 
 Orden de abrir applicación:
