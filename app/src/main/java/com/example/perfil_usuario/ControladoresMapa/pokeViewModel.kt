@@ -37,7 +37,6 @@ class PokeModelo: ViewModel(){
     // Límite de Pokémon por página
     private val POKEMON_LIMIT = 20
 
-    // Función para descargar una página específica de Pokémon
     // Por defecto, descarga la primera página (offset 0)
     fun descargar_pagina(offset: Int = 0){
         _estado_actual.postValue(Estados.cargando) // Establece el estado a "cargando"

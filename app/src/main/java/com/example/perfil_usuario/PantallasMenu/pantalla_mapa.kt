@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import androidx.media3.common.util.Log
 import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -39,7 +40,7 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         val marcador_ubicacion_actual = Marker(mapa_view)
 
         if(ubicacion_actual != null){
-            //marcador_ubicacion_actual.position = GeoPoint(ubicacion_actual!!) //tipo optional
+            marcador_ubicacion_actual.position = GeoPoint(ubicacion_actual!!) //tipo optional
             marcador_ubicacion_actual.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
             val poke_avatar: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_mapa)
             marcador_ubicacion_actual.icon = poke_avatar
@@ -47,12 +48,12 @@ fun MapaPokemones(controlador_gps: GPSControlador){
             mapa_view.controller.animateTo(marcador_ubicacion_actual.position) //to be shown a certain point
         }
 
-        /*val marcador = Marker(mapa_view)
+        val marcador = Marker(mapa_view)
         val parque_cowan = GeoPoint(31.711242676792303, -106.36436336981875)
         marcador.position = parque_cowan
         marcador.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         val poke_avatar: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_mapa)
-        marcador_ubicacion_actual.icon = poke_avatar*/
+        marcador_ubicacion_actual.icon = poke_avatar
 
         val marcador_2 = Marker(mapa_view)
         val parque_veterans = GeoPoint(31.92019790477828, -106.42046109544629) //get from google maps, veterans pool
@@ -75,7 +76,7 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         //mapa_view.controller.animateTo(parque_veterans)
 
         mapa_view.overlays.add(marcador_ubicacion_actual)
-        //mapa_view.overlays.add(marcador)
+        mapa_view.overlays.add(marcador)
         mapa_view.overlays.add(marcador_2)
         mapa_view.overlays.add(marcador_3)
     }

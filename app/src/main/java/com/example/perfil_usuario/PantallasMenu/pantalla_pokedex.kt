@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
 import com.example.perfil_usuario.API_Batalla.POKE.PokemonEntry
@@ -68,11 +69,10 @@ fun PokedexScreen(apiClient: PokemonApi) {
 
     // UI for the Pokedex screen
     Column(modifier = Modifier.fillMaxSize()) {
-
         if (loading) {
             // Show a loading indicator while fetching data
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = Color.Red)
+                CircularProgressIndicator(color = Color.Blue)
             }
         } else if (errorMessage != null) {
             // Show an error message if fetching data failed
@@ -83,10 +83,11 @@ fun PokedexScreen(apiClient: PokemonApi) {
             // Display the list of Pokemon
             LazyColumn(modifier = Modifier.padding(16.dp)) {
                 items(pokemonList!!) { pokemon ->  // Use non-null assertion here, since pokemonList is checked for null
+                    //Pokemon Name
                     Text(
                         text = "Name: ${pokemon.name}",
-                        modifier = Modifier.padding(8.dp),
-                        style = TextStyle(fontSize = 18.sp)
+                        modifier = Modifier.padding(10.dp),
+                        style = TextStyle(fontSize = 20.sp)
                     )
                 }
             }
