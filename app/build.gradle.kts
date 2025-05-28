@@ -86,4 +86,7 @@ dependencies {
 
     //Libreria para checar la infomacion en tiempo real
     implementation("androidx.compose.runtime:runtime-livedata:1.7.8")
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 }
