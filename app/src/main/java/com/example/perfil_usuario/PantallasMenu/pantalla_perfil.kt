@@ -52,7 +52,7 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
     ) {
         //Profile picture
         Image(
-            painter = painterResource(id = R.drawable.avatar_mapa),
+            painter = painterResource(id = R.drawable.avatar_profile),
             contentDescription = "Trainer Avatar",
             modifier = Modifier
                 .size(400.dp)
