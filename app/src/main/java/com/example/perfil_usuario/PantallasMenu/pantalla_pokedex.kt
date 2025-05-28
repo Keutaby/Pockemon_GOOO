@@ -3,9 +3,13 @@ package com.example.perfil_usuario.PantallasMenu
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -16,12 +20,17 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
+import com.example.perfil_usuario.API_Batalla.POKE.PokemonDetailResponse
 import com.example.perfil_usuario.API_Batalla.POKE.PokemonEntry
 import com.example.perfil_usuario.API_Batalla.PokemonApi
 import java.io.IOException
+
 
 class PokedexActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +74,7 @@ fun PokedexScreen(apiClient: PokemonApi) {
             }
         }
     }
-
+    val contexto = LocalContext.current
     // UI for the Pokedex screen
     Column(modifier = Modifier.fillMaxSize()) {
 
@@ -83,11 +92,31 @@ fun PokedexScreen(apiClient: PokemonApi) {
             // Display the list of Pokemon
             LazyColumn(modifier = Modifier.padding(16.dp)) {
                 items(pokemonList!!) { pokemon ->  // Use non-null assertion here, since pokemonList is checked for null
+
+                    Box(modifier = Modifier.background(color = Color.Yellow)
+                       .fillMaxSize()
+                       .padding(15.dp)
+                       .size(50.dp)
+                       .border( width = 2.dp, color = Color.Black),
+
+                       contentAlignment = Alignment.Center,
+
+                   ){
+                       AsyncImage(
+                           model = ImageRequest.Builder(contexto)
+                               .data("https://pokeapi.co/api/v2/pokemon/13/")
+                               .crossfade(true)
+                               .build(),
+                           contentDescription = "Pokémon",
+                           modifier = Modifier.size(150.dp)
+                       )
                     Text(
                         text = "Name: ${pokemon.name}",
                         modifier = Modifier.padding(8.dp),
                         style = TextStyle(fontSize = 18.sp)
                     )
+
+                   }
                 }
             }
         } else {

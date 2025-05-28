@@ -1,5 +1,6 @@
 package com.example.perfil_usuario.PantallasMenu
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,7 +12,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,6 +31,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.R
 
 @Composable
@@ -32,7 +40,9 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                    name: String,
                    level: Int,
                    team: String,
-                   pokedexCount: Int){
+                   pokedexCount: Int,
+                   navController: NavController
+                   ){
 
     Column(
         modifier = Modifier
@@ -108,6 +118,15 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 Text(text = pokedexCount.toString(), color = Color.Black, style = TextStyle(fontSize = 18.sp))
             }
             Spacer(modifier = Modifier.height(8.dp))
+        }
+        Button(
+            onClick = {
+                Log.d("NavController", "Attempting to navigate from Perfil. NavController: $navController")
+                navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
+                }
+        ) {
+            Icon(imageVector = Icons.Default.Settings, contentDescription = "configuracion")
+            Text(text = "Configuracion")
         }
     }
 }

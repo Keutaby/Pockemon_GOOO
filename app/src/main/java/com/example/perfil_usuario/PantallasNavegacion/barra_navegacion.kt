@@ -2,6 +2,7 @@ package com.example.Perfil_Usuario.PantallasNavegacion
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
@@ -14,6 +15,9 @@ sealed class PantallaMenuPrincipal(val ruta: String){
     object Pokedex: PantallaMenuPrincipal("pantalla_pokedex")
     object Batalla: PantallaMenuPrincipal("pantalla_batallas")
     object Perfil: PantallaMenuPrincipal("pantalla_perfil")
+    object Configuracion: PantallaMenuPrincipal("configuracion")
+    object Camara: PantallaMenuPrincipal("pantalla_camara")
+
 }
 
 data class BotonesInferioresNavegacion(
@@ -33,6 +37,12 @@ data class BotonesInferioresNavegacion(
                 etiqueta = "Pokedex",
                 icono = Icons.Filled.Info,
                 ruta = PantallaMenuPrincipal.Pokedex.ruta
+            ),
+
+            BotonesInferioresNavegacion(
+                etiqueta = "Camara",
+                icono = Icons.Filled.Add,
+                ruta = PantallaMenuPrincipal.Camara.ruta
             ),
 
             BotonesInferioresNavegacion(

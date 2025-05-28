@@ -71,7 +71,8 @@ fun MenuHome(modifier: Modifier, controlador_gps: GPSControlador){
                 PantallaPerfil(name = "",
                     level = 5,
                     team = "",
-                    pokedexCount = 10)
+                    pokedexCount = 10,
+                    navController = control_nav)
             }
 
             val apiClientInstance = InstanceRetrofitPoke.consumir_servicio

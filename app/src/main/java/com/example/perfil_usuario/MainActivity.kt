@@ -23,7 +23,10 @@ import com.example.Perfil_Usuario.ControladoresMapa.usuario_GPS
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import org.osmdroid.config.Configuration
 import android.Manifest
+import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
+import com.example.perfil_usuario.PantallasMenu.PantallaCamara
 import com.example.perfil_usuario.PantallasNavegacion.MenuHome
 import com.example.perfil_usuario.ui.theme.Perfil_UsuarioTheme
 
@@ -31,8 +34,32 @@ class MainActivity : ComponentActivity() {
     private lateinit var gps_sensor: usuario_GPS
     private val controlador_gps: GPSControlador by viewModels()
 
+    private val solicitud_permisos_camara =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { esta_garantizado ->
+            if(esta_garantizado){
+                //aqui implementamos la previzuñlaisacion
+                VistaDelaCamara()
+            }
+            else{
+
+            }
+
+        }
+
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+            when(PackageManager.PERMISSION_GRANTED){
+                ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)->{
+                    //aqui ponemos la vista de la camara
+                    Log.v("PERMISO GARATIZADO", "Los permisos son correctos")
+                    VistaDelaCamara()
+                }
+                else->{
+                    solicitud_permisos_camara.launch(Manifest.permission.CAMERA)
+                }
+            }
+            enableEdgeToEdge()
 
             gps_sensor = usuario_GPS(this)
 
@@ -77,6 +104,17 @@ class MainActivity : ComponentActivity() {
         var permiso_fine_location = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
         var permiso_coarse_location = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
         return permiso_fine_location || permiso_coarse_location
+    }
+
+    private fun VistaDelaCamara(){
+        setContent{
+            Perfil_UsuarioTheme {
+                Surface {
+                    PantallaCamara()
+                }
+
+            }
+        }
     }
 
     companion object{
