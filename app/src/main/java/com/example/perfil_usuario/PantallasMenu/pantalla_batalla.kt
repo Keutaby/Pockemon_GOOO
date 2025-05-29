@@ -134,13 +134,13 @@ fun BattleScreen() {
 
         Text(
             text = battleMessage,
-            color = Color.Yellow, // Yellow text for messages
+            color = Color.Yellow,
             fontSize = 18.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.Black.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
-                .padding(8.dp), // Padding inside the message box
+                .padding(8.dp),
             textAlign = TextAlign.Center
         )
 
@@ -168,7 +168,7 @@ fun BattleScreen() {
         Spacer(modifier = Modifier.height(24.dp))
 
         //player pokemon display
-        PokemonDisplay(pokemon = playerPokemon, isOpponent = false)
+        PokemonDisplay(pokemon = playerPokemon, isOpponent = true)
     }
 }
 
