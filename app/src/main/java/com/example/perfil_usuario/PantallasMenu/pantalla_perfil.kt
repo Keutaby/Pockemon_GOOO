@@ -119,7 +119,7 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
             }
             Spacer(modifier = Modifier.height(8.dp))
         }
-        Button(
+        /*Button(
             onClick = {
                 Log.d("NavController", "Attempting to navigate from Perfil. NavController: $navController")
                 navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
@@ -127,6 +127,6 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
         ) {
             Icon(imageVector = Icons.Default.Settings, contentDescription = "configuracion")
             Text(text = "Configuracion")
-        }
+        }*/
     }
 }

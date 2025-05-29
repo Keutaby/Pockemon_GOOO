@@ -21,6 +21,7 @@ import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
+import com.example.perfil_usuario.PantallasMenu.BattleScreen
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
 import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 
@@ -73,6 +74,10 @@ fun MenuHome(modifier: Modifier, controlador_gps: GPSControlador){
                     team = "",
                     pokedexCount = 10,
                     navController = control_nav)
+            }
+
+            composable(PantallaMenuPrincipal.Batalla.ruta) {
+                BattleScreen()
             }
 
             val apiClientInstance = InstanceRetrofitPoke.consumir_servicio

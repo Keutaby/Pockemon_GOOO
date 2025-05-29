@@ -13,6 +13,7 @@ import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
+import com.example.perfil_usuario.PantallasMenu.BattleScreen
 
 import com.example.perfil_usuario.PantallasMenu.PantallaCamara
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
@@ -58,12 +59,13 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
 
         composable(PantallaMenuPrincipal.Batalla.ruta){
             Text("Mostrando Batalla")
+            BattleScreen()
         }
 
-        composable(PantallaMenuPrincipal.Configuracion.ruta){
+        /*composable(PantallaMenuPrincipal.Configuracion.ruta){
             Text("CONFIGURACION")
             PantallaConfiguracion(navController = control_navegacion)
-        }
+        }*/
 
 
     }

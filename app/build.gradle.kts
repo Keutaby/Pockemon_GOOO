@@ -67,12 +67,12 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose.android)
-<<<<<<< HEAD
+
     implementation(libs.androidx.camera.core)
     implementation(libs.androidx.camera.lifecycle)
-=======
+
     implementation(libs.androidx.media3.common.ktx)
->>>>>>> 0f85904d42ded53debe3efe8290415e876b0252a
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -92,7 +92,7 @@ fun PokedexScreen(apiClient: PokemonApi) {
             // Display the list of Pokemon
             LazyColumn(modifier = Modifier.padding(16.dp)) {
                 items(pokemonList!!) { pokemon ->  // Use non-null assertion here, since pokemonList is checked for null
-<<<<<<< HEAD
+
 
                     Box(modifier = Modifier.background(color = Color.Yellow)
                        .fillMaxSize()
@@ -111,9 +111,8 @@ fun PokedexScreen(apiClient: PokemonApi) {
                            contentDescription = "Pokémon",
                            modifier = Modifier.size(150.dp)
                        )
-=======
+
                     //Pokemon Name
->>>>>>> 0f85904d42ded53debe3efe8290415e876b0252a
                     Text(
                         text = "Name: ${pokemon.name}",
                         modifier = Modifier.padding(10.dp),
