@@ -1,6 +1,7 @@
 package com.example.perfil_usuario.PantallasMenu
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -66,6 +67,9 @@ fun PokedexScreen(apiClient: PokemonApi) {
                     //Extract from https://pokeapi.co/api/v2/pokemon/1/
                     val id = entry.url.split("/").dropLast(1).last().toInt()
                     val detail = apiClient.getPokemonDetails(id)
+
+                    Log.d("PokedexDebug", "Pokemon: ${detail.name}, Sprite URL: ${detail.sprites.frontDefault}")
+
                     detailedPokemon.add(detail)
                 }
                 pokemonDetailsList = detailedPokemon
@@ -113,7 +117,10 @@ fun PokedexScreen(apiClient: PokemonApi) {
                                     .crossfade(true)
                                     .build(),
                                 contentDescription = "${pokemonDetail.name} sprite",
-                                modifier = Modifier.size(150.dp)
+                                modifier = Modifier
+                                    .size(150.dp)
+                                    .border(2.dp, Color.Red),
+                                contentScale = androidx.compose.ui.layout.ContentScale.Fit
                             )
                             Spacer(modifier = Modifier.height(8.dp))
 
