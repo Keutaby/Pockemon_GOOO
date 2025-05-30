@@ -7,14 +7,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.Perfil_Usuario.ui.navigation.Screen
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+
+//import com.example.pockemon_goo.ui.navigation.Screen
 
 @Composable
 fun RegisterScreen(navController: NavHostController) {
@@ -82,7 +83,8 @@ fun RegisterScreen(navController: NavHostController) {
         Button(
             onClick = {
                 if (email.isNotBlank() && username.isNotBlank() && password.isNotBlank()) {
-                    navController.navigate(Screen.Permisos.createRoute(username))
+                    //navController.navigate(PantallaMenuPrincipal.Permisos.createRoute(username))
+                    navController.navigate(PantallaMenuPrincipal.SeleccionPokemon.ruta)
                 } else {
                     showError = true
                 }

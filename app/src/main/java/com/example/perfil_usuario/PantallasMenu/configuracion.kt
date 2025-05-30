@@ -142,7 +142,24 @@ fun PantallaConfiguracion(navController: NavController) {
                 fontSize = 14.sp,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
+
+            //Regresar
+            Button(
+                onClick = {
+                    // Navigate to PantallaConfiguracion using its defined route
+                    // Make sure PantallaMenuPrincipal.Configuracion.ruta is defined correctly
+                    navController.navigate(PantallaMenuPrincipal.Perfil.ruta)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 32.dp), // Keeps it off the very bottom
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF007BFF)) // A distinct blue color
+            ) {
+                Text("Regresar", color = Color.White)
+            }
         }
+
+
     }
 }
 

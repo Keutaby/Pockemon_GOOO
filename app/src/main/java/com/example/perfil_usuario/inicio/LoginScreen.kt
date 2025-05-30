@@ -7,14 +7,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.Perfil_Usuario.ui.navigation.Screen
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+
+//import com.example.pockemon_goo.ui.navigation.Screen
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
@@ -71,11 +72,12 @@ fun LoginScreen(navController: NavHostController) {
 
         Button(
             onClick = {
-                if (identifier.isNotBlank() && password.isNotBlank()) {
-                    navController.navigate(Screen.Permisos.createRoute(identifier))
-                } else {
+                //if (identifier.isNotBlank() && password.isNotBlank()) {
+                    //navController.navigate(PantallaMenuPrincipal.Permisos.createRoute(identifier))
+                    navController.navigate(PantallaMenuPrincipal.Home.ruta)
+                /*} else {
                     showError = true
-                }
+                }*/
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -85,7 +87,7 @@ fun LoginScreen(navController: NavHostController) {
         }
 
         TextButton(
-            onClick = { navController.navigate(Screen.Register.route) },
+            onClick = { navController.navigate(PantallaMenuPrincipal.Register.ruta) },
             modifier = Modifier.padding(top = 16.dp)
         ) {
             Text("¿No tienes cuenta? Regístrate")

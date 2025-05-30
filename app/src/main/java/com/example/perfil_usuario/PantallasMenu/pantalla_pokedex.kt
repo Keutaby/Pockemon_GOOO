@@ -68,12 +68,14 @@ fun PokedexScreen(apiClient: PokemonApi) {
                     val id = entry.url.split("/").dropLast(1).last().toInt()
                     val detail = apiClient.getPokemonDetails(id)
 
-                    Log.d("PokedexDebug", "Pokemon: ${detail.name}, Sprite URL: ${detail.sprites.frontDefault}")
+                    Log.d("PokedexDebug", "Pokemon: ${detail.name}, Sprite URL: ${detail.sprites.front_default}")
 
                     detailedPokemon.add(detail)
                 }
+
                 pokemonDetailsList = detailedPokemon
                 loading = false
+
             } catch (e: IOException) {
                 errorMessage = "Failed to load Pokemon: ${e.message}"
                 loading = false
@@ -100,11 +102,12 @@ fun PokedexScreen(apiClient: PokemonApi) {
                 items(pokemonDetailsList!!) { pokemonDetail ->
                     Box(
                         modifier = Modifier
-                            .background(color = Color.Yellow, shape = RoundedCornerShape(8.dp))
+                            .background(color = Color.Red, shape = RoundedCornerShape(8.dp))
                             .fillMaxWidth()
                             .padding(15.dp)
                             .height(200.dp)
-                            .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(8.dp)),
+                            .width(100.dp)
+                            .border(width = 2.dp, color = Color.White, shape = RoundedCornerShape(8.dp)),
                         contentAlignment = Alignment.Center,
                     ) {
                         Column(
@@ -112,15 +115,17 @@ fun PokedexScreen(apiClient: PokemonApi) {
                             verticalArrangement = Arrangement.Center,
                             modifier = Modifier.fillMaxSize()
                         ) {
+                            Log.v("URL_IMAGEN", "${pokemonDetail.sprites.front_default}")
                             AsyncImage(
                                 model = ImageRequest.Builder(contexto)
-                                    .data(pokemonDetail.sprites.frontDefault) //image URL
+                                    .data(pokemonDetail.sprites.front_default) //image URL
                                     .crossfade(true)
                                     .build(),
                                 contentDescription = "${pokemonDetail.name} sprite",
                                 modifier = Modifier
                                     .size(150.dp)
-                                    .border(2.dp, Color.Red),
+                                    .padding(10.dp)
+                                    .border(2.dp, Color.Black),
                                 contentScale = androidx.compose.ui.layout.ContentScale.Fit
                             )
                             Spacer(modifier = Modifier.height(8.dp))
@@ -136,7 +141,8 @@ fun PokedexScreen(apiClient: PokemonApi) {
                             //ID
                             Text(
                                 text = "ID: ${pokemonDetail.id}",
-                                style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+                                style = TextStyle(fontSize = 16.sp, color = Color.Gray),
+                                modifier = Modifier.padding(10.dp)
                             )
                         }
                     }

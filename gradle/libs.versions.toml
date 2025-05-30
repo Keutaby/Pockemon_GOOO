@@ -21,7 +21,8 @@ cameraLifecycle = "1.4.2"
 
 media3CommonKtx = "1.7.1"
 
-media = "1.6.0" # Para MediaPlayer
+media = "1.6.0"
+coreSplashscreen = "1.0.1" # Para MediaPlayer
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,6 +54,7 @@ androidx-media3-common-ktx = { group = "androidx.media3", name = "media3-common-
 
 # Media (para sonidos)
 androidx-media = { group = "androidx.media", name = "media", version.ref = "media" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

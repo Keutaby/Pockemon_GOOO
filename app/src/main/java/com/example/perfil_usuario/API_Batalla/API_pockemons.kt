@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object InstanceRetrofitPoke{
-    private const val url_base = "https://pokeapi.co/api/v2/"
+    private const val url_base = "https://pokeapi.co/api/v2/" // https://pokeapi.co/api/v2/pokemon/{id}
 
     private val servicio: Retrofit by lazy {
         Retrofit.Builder()

@@ -58,6 +58,9 @@ dependencies {
     //Para jalar el observeAsState
     implementation("androidx.compose.runtime:runtime-livedata:1.8.1")
 
+    // Media
+    implementation(libs.androidx.media)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -72,6 +75,7 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
 
     implementation(libs.androidx.media3.common.ktx)
+    implementation(libs.androidx.core.splashscreen)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

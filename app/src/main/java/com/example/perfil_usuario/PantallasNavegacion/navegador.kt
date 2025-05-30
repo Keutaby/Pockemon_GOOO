@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
@@ -26,6 +27,10 @@ import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
 import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 import com.example.perfil_usuario.PantallasMenu.PantallaConfiguracion
 import com.example.perfil_usuario.PantallasMenu.PantallaGaleria
+import com.example.perfil_usuario.inicio.LoginScreen
+import com.example.perfil_usuario.inicio.PantallaSeleccionPokemon
+import com.example.perfil_usuario.inicio.RegisterScreen
+import com.example.perfil_usuario.inicio.SplashScreen
 import com.example.perfil_usuario.ui.theme.Perfil_UsuarioTheme
 
 @Composable
@@ -36,7 +41,23 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador,
 
     val apiClientInstance = InstanceRetrofitPoke.consumir_servicio
 
-    NavHost(navController = control_navegacion, startDestination = PantallaMenuPrincipal.Home.ruta){
+    NavHost(navController = control_navegacion, startDestination = PantallaMenuPrincipal.SplashScreen.ruta){
+        composable(PantallaMenuPrincipal.SplashScreen.ruta) {
+            SplashScreen(navController = control_navegacion)
+        }
+
+        composable(PantallaMenuPrincipal.Login.ruta) {
+            LoginScreen(navController = control_navegacion)
+        }
+
+        composable(PantallaMenuPrincipal.SeleccionPokemon.ruta) {
+            PantallaSeleccionPokemon(navController = control_navegacion)
+        }
+
+        composable(PantallaMenuPrincipal.Register.ruta) {
+            RegisterScreen(navController = control_navegacion)
+        }
+
         composable(PantallaMenuPrincipal.Home.ruta) {
             MapaPokemones(controlador_gps = controlador_gps)
         }

@@ -20,6 +20,14 @@ sealed class PantallaMenuPrincipal(val ruta: String){
     object Galeria: PantallaMenuPrincipal("pantalla_galria")
     object Fotou: PantallaMenuPrincipal("fotoUsuario_perfil")
 
+    object SplashScreen : PantallaMenuPrincipal("splash_screen")
+    object Login : PantallaMenuPrincipal("login")
+    object Register : PantallaMenuPrincipal("register")
+    object Permisos : PantallaMenuPrincipal("permisos/{username}") {
+        fun createRoute(username: String) = "permisos/$username"
+    }
+    object SeleccionPokemon : PantallaMenuPrincipal("seleccion_pokemon")
+
 }
 
 data class BotonesInferioresNavegacion(

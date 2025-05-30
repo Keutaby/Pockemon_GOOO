@@ -14,10 +14,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.Perfil_Usuario.R
-import com.example.Perfil_Usuario.ui.navigation.Screen
-import com.example.perfil_usuario.inicio.navigation.Screen
-import android.graphics.drawable.Drawable
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+import com.example.perfil_usuario.R
+
+//import com.example.pockemon_goo.R
+//import com.example.pockemon_goo.ui.navigation.Screen
 
 @Composable
 fun PantallaSeleccionPokemon(navController: NavHostController) {
@@ -112,8 +113,8 @@ fun PantallaSeleccionPokemon(navController: NavHostController) {
                 Spacer(modifier = Modifier.height(24.dp))
                 Button(onClick = {
                     // Navegar a la siguiente pantalla, por ejemplo Main o Dashboard
-                    navController.navigate(Screen.Mapa.route) {
-                        popUpTo(Screen.SeleccionPokemon.route) { inclusive = true }
+                    navController.navigate(PantallaMenuPrincipal.Home.ruta) {
+                        popUpTo(PantallaMenuPrincipal.SeleccionPokemon.ruta) { inclusive = true }
                     }
                 }) {
                     Text("Siguiente")

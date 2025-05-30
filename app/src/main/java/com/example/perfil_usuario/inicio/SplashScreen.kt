@@ -1,6 +1,5 @@
 package com.example.perfil_usuario.inicio
 
-// Ubicación: `com.example.pockemon_goo/MainScreen.kt`
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -18,13 +17,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import android.media.MediaPlayer
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
-import com.example.Perfil_Usuario.R
-import com.example.Perfil_Usuario.ui.navigation.Screen
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
+import com.example.perfil_usuario.R
+//import com.example.pockemon_goo.R
+//import com.example.pockemon_goo.ui.navigation.Screen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun MainScreen(navController: NavHostController) {
+fun SplashScreen(navController: NavHostController) {
     var showPokebola by remember { mutableStateOf(true) }
     val context = LocalContext.current
 
@@ -69,7 +69,7 @@ fun MainScreen(navController: NavHostController) {
                             mediaPlayer.start()
                             showPokebola = false
                         } else {
-                            navController.navigate(Screen.Login.route)
+                            navController.navigate(PantallaMenuPrincipal.Login.ruta)
                         }
                     }
             )

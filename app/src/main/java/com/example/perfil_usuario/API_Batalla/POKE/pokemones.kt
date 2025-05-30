@@ -20,7 +20,7 @@ data class PokemonDetailResponse(
 )
 
 data class PokemonSprites(
-    val frontDefault: String?
+    val front_default: String
 )
 
 data class PokemonTypeEntry(
