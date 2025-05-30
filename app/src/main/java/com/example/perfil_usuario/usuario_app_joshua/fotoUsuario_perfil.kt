@@ -42,10 +42,11 @@ import com.example.perfil_usuario.R
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
-fun FotoUsuarioPerfil() {
+fun FotoUsuarioPerfil(navController: NavController) {
     var colorBorde by remember { mutableStateOf(Color(0xFFCC0000)) }
     val coloresDisponibles = listOf(
         Color(0xFFCC0000), Color(0xFF007BFF), Color(0xFF4CAF50), Color(0xFFFF9800), Color.White
@@ -159,10 +160,4 @@ fun FotoUsuarioPerfil() {
 }
 
 
-
-@Preview(showBackground = true)
-@Composable
-fun FotoUsuarioPerfilPreview() {
-    FotoUsuarioPerfil()
-}
 

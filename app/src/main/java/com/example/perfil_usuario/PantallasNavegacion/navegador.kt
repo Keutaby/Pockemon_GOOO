@@ -1,10 +1,14 @@
 package com.example.perfil_usuario.PantallasNavegacion
 
 import android.util.Log
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.ManagedActivityResultLauncher
+import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
@@ -13,15 +17,19 @@ import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
+import com.example.perfil_usuario.FotoUsuarioPerfil
 
 import com.example.perfil_usuario.PantallasMenu.PantallaCamara
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
 import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 import com.example.perfil_usuario.PantallasMenu.PantallaConfiguracion
+import com.example.perfil_usuario.PantallasMenu.PantallaGaleria
 import com.example.perfil_usuario.ui.theme.Perfil_UsuarioTheme
 
 @Composable
-fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
+fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador,
+
+){
     val control_navegacion = rememberNavController()
 
     val apiClientInstance = InstanceRetrofitPoke.consumir_servicio
@@ -50,10 +58,12 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
         composable(PantallaMenuPrincipal.Camara.ruta){
             Text("Mostrando Camara")
 
-                Surface {
-                    PantallaCamara()
-                }
+                PantallaCamara(navController = control_navegacion,)
 
+        }
+        composable(PantallaMenuPrincipal.Galeria.ruta){
+            Text("Mostrando Galeria")
+            PantallaGaleria(navController = control_navegacion)
         }
 
         composable(PantallaMenuPrincipal.Batalla.ruta){
@@ -63,6 +73,10 @@ fun PantallaNavegadora(modifier: Modifier, controlador_gps: GPSControlador){
         composable(PantallaMenuPrincipal.Configuracion.ruta){
             Text("CONFIGURACION")
             PantallaConfiguracion(navController = control_navegacion)
+        }
+
+        composable(PantallaMenuPrincipal.Fotou.ruta) {
+            FotoUsuarioPerfil(navController = control_navegacion)
         }
 
 

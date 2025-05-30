@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 
 @Composable
 fun PantallaConfiguracion(navController: NavController) {
@@ -102,7 +103,7 @@ fun PantallaConfiguracion(navController: NavController) {
                 fontSize = 18.sp,
                 modifier = Modifier
                     .clickable {
-                        navController.navigate("fotoUsuario_perfil")
+                        navController.navigate(PantallaMenuPrincipal.Fotou.ruta)
                     }
                     .padding(vertical = 8.dp)
             )

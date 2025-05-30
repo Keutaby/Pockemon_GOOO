@@ -3,6 +3,7 @@ package com.example.Perfil_Usuario.PantallasMenu
 import android.graphics.drawable.Drawable
 import android.location.Location
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -60,7 +61,7 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         marcador_2.position = parque_veterans
         marcador_2.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         //marcador_2.icon
-        val poke_gym_marker: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym)
+        val poke_gym_marker: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym,)
         marcador_2.icon = poke_gym_marker
 
         val marcador_3 = Marker(mapa_view)

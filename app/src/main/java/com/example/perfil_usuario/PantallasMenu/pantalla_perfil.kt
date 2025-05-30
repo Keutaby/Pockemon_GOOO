@@ -3,6 +3,7 @@ package com.example.perfil_usuario.PantallasMenu
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -42,91 +43,113 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                    team: String,
                    pokedexCount: Int,
                    navController: NavController
-                   ){
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        //Profile picture
+                   ) {
+    Box(modifier = Modifier.fillMaxSize())
+    {
         Image(
-            painter = painterResource(id = R.drawable.avatar_profile),
-            contentDescription = "Trainer Avatar",
-            modifier = Modifier
-                .size(400.dp)
-                .clip(CircleShape),
+            painter = painterResource(id = R.drawable.fondop),
+            contentDescription = null,
             contentScale = ContentScale.Crop,
-
-            )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        //Player name and level
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = name,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(end = 8.dp),
-                style = TextStyle(fontSize = 18.sp)
-            )
-            Text(
-                text = "Lv. $level",
-                color = Color.Gray,
-                textAlign = TextAlign.Center,
-                style = TextStyle(fontSize = 18.sp)
-            )
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        //Team info
-        Text(
-            text = "Team: $team",
-            fontWeight = FontWeight.Bold,
-            color = Color.DarkGray,
-            textAlign = TextAlign.Center,
-            style = TextStyle(fontSize = 18.sp)
+            modifier = Modifier.fillMaxSize()
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        //Player stats
         Column(
-            modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.Start
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            //Profile picture
+            Image(
+                painter = painterResource(id = R.drawable.avatar_profile),
+                contentDescription = "Trainer Avatar",
+                modifier = Modifier
+                    .size(400.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop,
+
+                )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            //Player name and level
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = name,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(end = 8.dp),
+                    style = TextStyle(fontSize = 18.sp)
+                )
+                Text(
+                    text = "Lv. $level",
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center,
+                    style = TextStyle(fontSize = 18.sp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            //Team info
             Text(
-                text = "Player Stats",
-                color = Color.Black,
+                text = "Team: $team",
+                fontWeight = FontWeight.Bold,
+                color = Color.DarkGray,
+                textAlign = TextAlign.Center,
                 style = TextStyle(fontSize = 18.sp)
             )
-            Modifier.padding(vertical = 8.dp)
-            HorizontalDivider(modifier, color = Color.Black)
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            //Player stats
+            Column(
+                modifier = Modifier.padding(16.dp),
+                horizontalAlignment = Alignment.Start
             ) {
-                Text(text = "Pokédex Count:", color = Color.Gray, style = TextStyle(fontSize = 18.sp))
-                Text(text = pokedexCount.toString(), color = Color.Black, style = TextStyle(fontSize = 18.sp))
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-        }
-        Button(
-            onClick = {
-                Log.d("NavController", "Attempting to navigate from Perfil. NavController: $navController")
-                navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
+                Text(
+                    text = "Player Stats",
+                    color = Color.Black,
+                    style = TextStyle(fontSize = 18.sp)
+                )
+                Modifier.padding(vertical = 8.dp)
+                HorizontalDivider(modifier, color = Color.Black)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = "Pokédex Count:",
+                        color = Color.Gray,
+                        style = TextStyle(fontSize = 18.sp)
+                    )
+                    Text(
+                        text = pokedexCount.toString(),
+                        color = Color.Black,
+                        style = TextStyle(fontSize = 18.sp)
+                    )
                 }
-        ) {
-            Icon(imageVector = Icons.Default.Settings, contentDescription = "configuracion")
-            Text(text = "Configuracion")
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+            Button(
+                onClick = {
+                    Log.d(
+                        "NavController",
+                        "Attempting to navigate from Perfil. NavController: $navController"
+                    )
+                    navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
+                }
+            ) {
+                Icon(imageVector = Icons.Default.Settings, contentDescription = "configuracion")
+                Text(text = "Configuracion")
+            }
+
         }
     }
 }

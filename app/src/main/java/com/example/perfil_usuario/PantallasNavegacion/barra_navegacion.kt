@@ -17,6 +17,8 @@ sealed class PantallaMenuPrincipal(val ruta: String){
     object Perfil: PantallaMenuPrincipal("pantalla_perfil")
     object Configuracion: PantallaMenuPrincipal("configuracion")
     object Camara: PantallaMenuPrincipal("pantalla_camara")
+    object Galeria: PantallaMenuPrincipal("pantalla_galria")
+    object Fotou: PantallaMenuPrincipal("fotoUsuario_perfil")
 
 }
 

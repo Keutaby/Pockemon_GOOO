@@ -24,6 +24,7 @@ import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import org.osmdroid.config.Configuration
 import android.Manifest
 import android.util.Log
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
 import com.example.perfil_usuario.PantallasMenu.PantallaCamara
@@ -34,31 +35,27 @@ class MainActivity : ComponentActivity() {
     private lateinit var gps_sensor: usuario_GPS
     private val controlador_gps: GPSControlador by viewModels()
 
-    private val solicitud_permisos_camara =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { esta_garantizado ->
-            if(esta_garantizado){
-                //aqui implementamos la previzuñlaisacion
-                VistaDelaCamara()
-            }
-            else{
 
+    val solicitudPermisosCamara: ActivityResultLauncher<String> =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { estaGarantizado ->
+            // Esta lógica ahora se manejará idealmente dentro o en respuesta
+            // a una acción en PantallaCamara.
+            // Podrías usar un State en PantallaCamara para controlar la visibilidad
+            // de la vista de la cámara basado en este resultado.
+            if (estaGarantizado) {
+                Log.v("PERMISO_CAMARA_CONCEDIDO", "El permiso fue concedido.")
+                // Aquí podrías actualizar un State que PantallaCamara observa
+                // para saber si debe mostrar la vista de la cámara.
+            } else {
+                Log.v("PERMISO_CAMARA_DENEGADO", "El permiso fue denegado.")
+                // Manejar el caso de permiso denegado (mostrar mensaje, etc.)
             }
-
         }
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge() // Habilita edge-to-edge una sola vez
 
-            when(PackageManager.PERMISSION_GRANTED){
-                ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)->{
-                    //aqui ponemos la vista de la camara
-                    Log.v("PERMISO GARATIZADO", "Los permisos son correctos")
-                    VistaDelaCamara()
-                }
-                else->{
-                    solicitud_permisos_camara.launch(Manifest.permission.CAMERA)
-                }
-            }
             enableEdgeToEdge()
 
             gps_sensor = usuario_GPS(this)
@@ -106,16 +103,7 @@ class MainActivity : ComponentActivity() {
         return permiso_fine_location || permiso_coarse_location
     }
 
-    private fun VistaDelaCamara(){
-        setContent{
-            Perfil_UsuarioTheme {
-                Surface {
-                    PantallaCamara()
-                }
 
-            }
-        }
-    }
 
     companion object{
         const val permisos_totales_gps = 123 //request code #
