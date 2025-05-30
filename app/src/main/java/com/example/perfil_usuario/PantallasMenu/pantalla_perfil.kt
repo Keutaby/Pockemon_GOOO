@@ -89,7 +89,7 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 )
                 Text(
                     text = "Lv. $level",
-                    color = Color.Gray,
+                    color = Color.DarkGray,
                     textAlign = TextAlign.Center,
                     style = TextStyle(fontSize = 18.sp)
                 )
@@ -113,7 +113,6 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 modifier = Modifier.padding(16.dp),
                 horizontalAlignment = Alignment.Start
             ) {
-<<<<<<< HEAD
                 Text(
                     text = "Player Stats",
                     color = Color.Black,
@@ -127,7 +126,7 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
                 ) {
                     Text(
                         text = "Pokédex Count:",
-                        color = Color.Gray,
+                        color = Color.DarkGray,
                         style = TextStyle(fontSize = 18.sp)
                     )
                     Text(
@@ -152,21 +151,8 @@ fun PantallaPerfil(modifier: Modifier = Modifier,
             }
 
         }
-=======
-                Text(text = "Pokédex Count:", color = Color.Gray, style = TextStyle(fontSize = 18.sp))
-                Text(text = pokedexCount.toString(), color = Color.Black, style = TextStyle(fontSize = 18.sp))
-            }
+
             Spacer(modifier = Modifier.height(8.dp))
-        }
-        /*Button(
-            onClick = {
-                Log.d("NavController", "Attempting to navigate from Perfil. NavController: $navController")
-                navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
-                }
-        ) {
-            Icon(imageVector = Icons.Default.Settings, contentDescription = "configuracion")
-            Text(text = "Configuracion")
-        }*/
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
+
     }
 }

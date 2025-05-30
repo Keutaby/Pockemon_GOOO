@@ -44,6 +44,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
+import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 
 @Composable
 fun FotoUsuarioPerfil(navController: NavController) {
@@ -154,6 +155,21 @@ fun FotoUsuarioPerfil(navController: NavController) {
                 colors = ButtonDefaults.buttonColors(containerColor = colorBorde)
             ) {
                 Text("Cambiar foto de perfil", color = Color.White)
+            }
+
+            //Regresar a pantalla de configuracion
+            Button(
+                onClick = {
+                    // Navigate to PantallaConfiguracion using its defined route
+                    // Make sure PantallaMenuPrincipal.Configuracion.ruta is defined correctly
+                    navController.navigate(PantallaMenuPrincipal.Configuracion.ruta)
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 32.dp), // Keeps it off the very bottom
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF007BFF)) // A distinct blue color
+            ) {
+                Text("Ir a Configuración", color = Color.White)
             }
         }
     }

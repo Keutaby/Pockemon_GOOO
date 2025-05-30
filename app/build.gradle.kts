@@ -67,13 +67,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose.android)
-<<<<<<< HEAD
-=======
 
     implementation(libs.androidx.camera.core)
     implementation(libs.androidx.camera.lifecycle)
 
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
     implementation(libs.androidx.media3.common.ktx)
 
     testImplementation(libs.junit)
@@ -83,6 +80,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation ("androidx.compose.material3:material3:1.2.1")
+    implementation ("com.google.accompanist:accompanist-permissions:0.30.1")
+
+    // Media
+    //implementation(libs.androidx.media)
 
     //Librerias para Retrofit
     val version_retrofit = "2.9.0"

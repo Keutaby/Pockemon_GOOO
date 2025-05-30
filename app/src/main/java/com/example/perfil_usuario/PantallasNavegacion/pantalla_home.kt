@@ -23,14 +23,14 @@ import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasNavegacion.BotonesInferioresNavegacion
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
-<<<<<<< HEAD
+
 import com.example.perfil_usuario.FotoUsuarioPerfil
 import com.example.perfil_usuario.PantallasMenu.PantallaCamara
 import com.example.perfil_usuario.PantallasMenu.PantallaConfiguracion
 import com.example.perfil_usuario.PantallasMenu.PantallaGaleria
-=======
+
 import com.example.perfil_usuario.PantallasMenu.BattleScreen
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
+
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil
 import com.example.perfil_usuario.PantallasMenu.PokedexScreen
 
@@ -87,11 +87,10 @@ fun MenuHome(
                 )
             }
 
-<<<<<<< HEAD
+
             composable(PantallaMenuPrincipal.Pokedex.ruta) {
                 PokedexScreen(apiClient = InstanceRetrofitPoke.consumir_servicio)
             }
-
             // 👉 Agrega esta pantalla
             composable(PantallaMenuPrincipal.Camara.ruta) {
                 PantallaCamara(navController = control_nav)
@@ -107,7 +106,8 @@ fun MenuHome(
             }
             composable(PantallaMenuPrincipal.Fotou.ruta) {
                 FotoUsuarioPerfil(navController = control_nav)
-=======
+            }
+
             composable(PantallaMenuPrincipal.Batalla.ruta) {
                 BattleScreen()
             }
@@ -117,7 +117,7 @@ fun MenuHome(
                 PokedexScreen(
                     apiClient = apiClientInstance
                 )
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
+
             }
         }
     }

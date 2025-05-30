@@ -96,38 +96,7 @@ fun PokedexScreen(apiClient: PokemonApi) {
             }
         } else if (pokemonDetailsList != null) {
             LazyColumn(modifier = Modifier.padding(16.dp)) {
-<<<<<<< HEAD
-                items(pokemonList!!) { pokemon ->  // Use non-null assertion here, since pokemonList is checked for null
 
-
-                    Box(modifier = Modifier.background(color = Color.Yellow)
-                       .fillMaxSize()
-                       .padding(15.dp)
-                       .size(50.dp)
-                       .border( width = 2.dp, color = Color.Black),
-
-                       contentAlignment = Alignment.Center,
-
-                   ){
-                       AsyncImage(
-                           model = ImageRequest.Builder(contexto)
-                               .data("https://pokeapi.co/api/v2/pokemon/13/")
-                               .crossfade(true)
-                               .build(),
-                           contentDescription = "Pokémon",
-                           modifier = Modifier.size(150.dp)
-                       )
-
-                    //Pokemon Name
-
-                    Text(
-                        text = "Name: ${pokemon.name}",
-                        modifier = Modifier.padding(10.dp),
-                        style = TextStyle(fontSize = 20.sp)
-                    )
-
-                   }
-=======
                 items(pokemonDetailsList!!) { pokemonDetail ->
                     Box(
                         modifier = Modifier
@@ -172,7 +141,6 @@ fun PokedexScreen(apiClient: PokemonApi) {
                         }
                     }
                     Spacer(modifier = Modifier.height(16.dp))
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
                 }
             }
         } else {

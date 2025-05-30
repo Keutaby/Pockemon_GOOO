@@ -17,11 +17,9 @@ import com.example.Perfil_Usuario.ControladoresMapa.GPSControlador
 import com.example.Perfil_Usuario.PantallasMenu.MapaPokemones
 import com.example.Perfil_Usuario.PantallasNavegacion.PantallaMenuPrincipal
 import com.example.perfil_usuario.API_Batalla.InstanceRetrofitPoke
-<<<<<<< HEAD
+
 import com.example.perfil_usuario.FotoUsuarioPerfil
-=======
 import com.example.perfil_usuario.PantallasMenu.BattleScreen
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
 
 import com.example.perfil_usuario.PantallasMenu.PantallaCamara
 import com.example.perfil_usuario.PantallasMenu.PantallaPerfil

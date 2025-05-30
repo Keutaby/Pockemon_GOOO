@@ -41,30 +41,30 @@ fun MapaPokemones(controlador_gps: GPSControlador){
 
     AndroidView(modifier = Modifier.fillMaxSize(),
         factory = { contexto ->
-            val marcador_ubicacion_actual_instance = Marker(mapa_view)
-            marcador_ubicacion_actual_instance.position = parque_cowan
-            marcador_ubicacion_actual_instance.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            marcador_ubicacion_actual_instance.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_profile)
+            val marcador_ubicacion_actual = Marker(mapa_view)
+            marcador_ubicacion_actual.position = parque_cowan
+            marcador_ubicacion_actual.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+            marcador_ubicacion_actual.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_profile)
 
-            val marcador_cowan_instance = Marker(mapa_view)
-            marcador_cowan_instance.position = parque_cowan
-            marcador_cowan_instance.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+            val marcador_cowan = Marker(mapa_view)
+            marcador_cowan.position = parque_cowan
+            marcador_cowan.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
 
-            val marcador_veterans_instance = Marker(mapa_view)
-            marcador_veterans_instance.position = parque_veterans
-            marcador_veterans_instance.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            marcador_veterans_instance.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym)
+            val marcador_veterans = Marker(mapa_view)
+            marcador_veterans.position = parque_veterans
+            marcador_veterans.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+            marcador_veterans.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_gym)
 
-            val marcador_westside_instance = Marker(mapa_view)
-            marcador_westside_instance.position = parque_westside
-            marcador_westside_instance.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-            marcador_westside_instance.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_pokestop)
+            val marcador_westside = Marker(mapa_view)
+            marcador_westside.position = parque_westside
+            marcador_westside.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+            marcador_westside.icon = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.threed_pokestop)
 
             //Overlays
-            mapa_view.overlays.add(marcador_ubicacion_actual_instance)
-            mapa_view.overlays.add(marcador_cowan_instance)
-            mapa_view.overlays.add(marcador_veterans_instance)
-            mapa_view.overlays.add(marcador_westside_instance)
+            mapa_view.overlays.add(marcador_ubicacion_actual)
+            mapa_view.overlays.add(marcador_cowan)
+            mapa_view.overlays.add(marcador_veterans)
+            mapa_view.overlays.add(marcador_westside)
 
             mapa_view
         }){ mapa_view_updated ->
@@ -80,14 +80,13 @@ fun MapaPokemones(controlador_gps: GPSControlador){
             mapa_view_updated.controller.animateTo(parque_cowan)
             current_location_marker?.position = parque_cowan
         }
-<<<<<<< HEAD
 
         val marcador = Marker(mapa_view)
         val parque_cowan = GeoPoint(31.711242676792303, -106.36436336981875)
         marcador.position = parque_cowan
         marcador.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         val poke_avatar: Drawable? = ContextCompat.getDrawable(contexto, com.example.perfil_usuario.R.drawable.avatar_mapa)
-        marcador_ubicacion_actual.icon = poke_avatar
+        //marcador_ubicacion_actual.icon = poke_avatar
 
         val marcador_2 = Marker(mapa_view)
         val parque_veterans = GeoPoint(31.92019790477828, -106.42046109544629) //get from google maps, veterans pool
@@ -109,12 +108,10 @@ fun MapaPokemones(controlador_gps: GPSControlador){
         //Log.v("Distancia", "La distancia es ${distancia}")
         //mapa_view.controller.animateTo(parque_veterans)
 
-        mapa_view.overlays.add(marcador_ubicacion_actual)
+        //mapa_view.overlays.add(marcador_ubicacion_actual)
         mapa_view.overlays.add(marcador)
         mapa_view.overlays.add(marcador_2)
         mapa_view.overlays.add(marcador_3)
-=======
         mapa_view_updated.invalidate()
->>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
     }
 }
