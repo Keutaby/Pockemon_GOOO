@@ -1,6 +1,7 @@
 package com.example.perfil_usuario.PantallasMenu
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -49,48 +50,53 @@ class PokedexActivity : ComponentActivity() {
 
 @Composable
 fun PokedexScreen(apiClient: PokemonApi) {
-    //list of Pokemon
-    var pokemonList by remember { mutableStateOf<List<PokemonEntry>?>(null) }
-    //any error message
+    var pokemonDetailsList by remember { mutableStateOf<List<PokemonDetailResponse>?>(null) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
-    //indicate loading
     var loading by remember { mutableStateOf(true) }
 
-    //launch asynchronous operations
     val coroutineScope = rememberCoroutineScope()
+    val contexto = LocalContext.current
 
-    //Pokemon data
     LaunchedEffect(Unit) {
         coroutineScope.launch {
             try {
-                val response = apiClient.getPokemonList(offset = 0, limit = 100)
-                pokemonList = response.results
-                loading = false // Set loading to false after successful fetch
+                val listResponse = apiClient.getPokemonList(offset = 0, limit = 100)
+                val detailedPokemon = mutableListOf<PokemonDetailResponse>()
+
+                for (entry in listResponse.results) {
+                    //Extract from https://pokeapi.co/api/v2/pokemon/1/
+                    val id = entry.url.split("/").dropLast(1).last().toInt()
+                    val detail = apiClient.getPokemonDetails(id)
+
+                    Log.d("PokedexDebug", "Pokemon: ${detail.name}, Sprite URL: ${detail.sprites.frontDefault}")
+
+                    detailedPokemon.add(detail)
+                }
+                pokemonDetailsList = detailedPokemon
+                loading = false
             } catch (e: IOException) {
                 errorMessage = "Failed to load Pokemon: ${e.message}"
-                loading = false // Set loading to false even on error
+                loading = false
             } catch (e: Exception) {
                 errorMessage = "An unexpected error occurred: ${e.message}"
                 loading = false
             }
         }
     }
-    val contexto = LocalContext.current
-    // UI for the Pokedex screen
+
+    //UI for the Pokedex screen
     Column(modifier = Modifier.fillMaxSize()) {
         if (loading) {
-            // Show a loading indicator while fetching data
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator(color = Color.Blue)
             }
         } else if (errorMessage != null) {
-            // Show an error message if fetching data failed
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Error Message", color = Color.Red)
+                Text(errorMessage!!, color = Color.Red)
             }
-        } else if (pokemonList != null) {
-            // Display the list of Pokemon
+        } else if (pokemonDetailsList != null) {
             LazyColumn(modifier = Modifier.padding(16.dp)) {
+<<<<<<< HEAD
                 items(pokemonList!!) { pokemon ->  // Use non-null assertion here, since pokemonList is checked for null
 
 
@@ -121,10 +127,55 @@ fun PokedexScreen(apiClient: PokemonApi) {
                     )
 
                    }
+=======
+                items(pokemonDetailsList!!) { pokemonDetail ->
+                    Box(
+                        modifier = Modifier
+                            .background(color = Color.Yellow, shape = RoundedCornerShape(8.dp))
+                            .fillMaxWidth()
+                            .padding(15.dp)
+                            .height(200.dp)
+                            .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(8.dp)),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            AsyncImage(
+                                model = ImageRequest.Builder(contexto)
+                                    .data(pokemonDetail.sprites.frontDefault) //image URL
+                                    .crossfade(true)
+                                    .build(),
+                                contentDescription = "${pokemonDetail.name} sprite",
+                                modifier = Modifier
+                                    .size(150.dp)
+                                    .border(2.dp, Color.Red),
+                                contentScale = androidx.compose.ui.layout.ContentScale.Fit
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            //Pokemon name
+                            Text(
+                                text = "Name: ${pokemonDetail.name.replaceFirstChar { 
+                                    if (it.isLowerCase()) it.titlecase() 
+                                    else it.toString() }}",
+                                style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            //ID
+                            Text(
+                                text = "ID: ${pokemonDetail.id}",
+                                style = TextStyle(fontSize = 16.sp, color = Color.Gray)
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+>>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
                 }
             }
         } else {
-            // Show a message if the list is empty
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Text("No Pokemon found.")
             }

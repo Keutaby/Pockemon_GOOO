@@ -15,6 +15,13 @@ playServicesLocation = "21.3.0"
 versionNavigationCompose = "2.8.2"
 versionKotlinxSerialization = "1.6.3"
 navigationComposeAndroid = "2.9.0"
+<<<<<<< HEAD
+=======
+
+cameraCore = "1.4.2"
+cameraLifecycle = "1.4.2"
+
+>>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
 media3CommonKtx = "1.7.1"
 
 
@@ -40,6 +47,13 @@ play-services-location = { group = "com.google.android.gms", name = "play-servic
 androidx-navigation-compose = {module = "androidx.navigation:navigation-compose", version.ref = "versionNavigationCompose"}
 kotlinx-serialization-json = {module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "versionKotlinxSerialization"}
 androidx-navigation-compose-android = { group = "androidx.navigation", name = "navigation-compose-android", version.ref = "navigationComposeAndroid" }
+<<<<<<< HEAD
+=======
+
+androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "cameraCore" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraLifecycle" }
+
+>>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
 androidx-media3-common-ktx = { group = "androidx.media3", name = "media3-common-ktx", version.ref = "media3CommonKtx" }
 
 

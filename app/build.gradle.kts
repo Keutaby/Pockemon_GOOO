@@ -67,6 +67,13 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose.android)
+<<<<<<< HEAD
+=======
+
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.lifecycle)
+
+>>>>>>> bd1a56b5797c35d53a2f6f1f26a06167010e6441
     implementation(libs.androidx.media3.common.ktx)
 
     testImplementation(libs.junit)
@@ -89,9 +96,7 @@ dependencies {
     //Libreria para checar la infomacion en tiempo real
     implementation("androidx.compose.runtime:runtime-livedata:1.7.8")
 
-    implementation("io.coil-kt:coil-compose:2.4.0")
-
-    implementation("io.coil-kt:coil-compose:2.x.x") // Check for the latest version
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
 
     //estas son para cargar camara x
